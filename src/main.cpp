@@ -4,7 +4,10 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
-#include "Components/Components.h"
+#include "Actors/Actor.h"
+#include "Components/Component.h"
+
+int tab = 0;
 
 int main() {
 
@@ -29,13 +32,17 @@ int main() {
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    ImGuiIO &io = ImGui::GetIO();
+    (void) io;
     ImGui::StyleColorsLight();
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 150");
 
-    auto *components = new Components();
+    auto *components = new Component();
     components->init();
+
+    auto *actors = new Actor();
+    actors->init();
 
     //初始化GLEW
     glewExperimental = true;
@@ -54,10 +61,29 @@ int main() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        for (auto current:components->array) {
-            current->OnGui();
-            current->Update();
+        ImGui::BeginTabBar("Create");
+        if (ImGui::TabItemButton("Actors")) tab = 0;
+        if (ImGui::TabItemButton("Lighting")) tab = 1;
+        if (ImGui::TabItemButton("Components")) tab = 2;
+        switch (tab) {
+            case 0:
+                ImGui::Text("Create");
+                for (auto current:actors->initArray) {
+                    current->OnInitGui();
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                for (auto current:components->array) {
+                    current->OnGui();
+                    current->Update();
+                }
+                break;
+            default:
+                break;
         }
+        ImGui::EndTabBar();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
