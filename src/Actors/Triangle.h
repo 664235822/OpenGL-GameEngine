@@ -7,15 +7,26 @@
 
 #include "Actor.h"
 
-class Triangle :public Actor{
+class Triangle : public Actor {
 
 public:
 
     Triangle();
 
-protected:
+    void OnInit() override;
 
-    void CreateButtonOnClick() override;
+    void OnUpdate() override;
+
+private:
+
+    unsigned int VAO;
+    unsigned int VBO;
+
+    float vertices[18] = {
+            0.5f, 0.5f, 0.0f, 1.0f, 0, 0,
+            0.5f, -0.5f, 0.0f, 0, 1.0f, 0,
+            -0.5f, -0.5f, 0.0f, 0, 0, 1.0f,
+    };
 };
 
 

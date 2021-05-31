@@ -9,20 +9,25 @@
 
 Actor::Actor() = default;
 
-void Actor::init() {
-    auto *triangle = new Triangle();
-    auto *rectangle = new Rectangle();
-
-    initArray.push_back(triangle);
-    initArray.push_back(rectangle);
-}
-
 void Actor::OnInitGui() {
-    if (ImGui::Button(label)) {
-        CreateButtonOnClick();
+    if (ImGui::Button("Triangle")) {
+        auto *triangle = new Triangle();
+        triangle->OnInit();
+        array.push_back(triangle);
+    }
+    if (ImGui::Button("Rectangle")) {
+        auto *rectangle = new Rectangle();
+        rectangle->OnInit();
+        array.push_back(rectangle);
     }
 }
 
-void Actor::CreateButtonOnClick() {
+void Actor::OnInit() {
 
 }
+
+void Actor::OnUpdate() {
+
+}
+
+

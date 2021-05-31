@@ -12,16 +12,21 @@ public:
 
     Rectangle();
 
-protected:
+    void OnInit() override;
 
-    void CreateButtonOnClick() override;
+    void OnUpdate() override;
 
 private:
-    float vertices[12]={
-            0.5f, 0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            -0.5f, -0.5f, 0.0f,
-            -0.5f, 0.5f, 0.0f
+
+    unsigned int VAO;
+    unsigned int VBO;
+    unsigned int EBO;
+
+    float vertices[24] = {
+            0.5f, 0.5f, 0.0f, 1.0f, 0, 0,
+            0.5f, -0.5f, 0.0f, 0, 1.0f, 0,
+            -0.5f, -0.5f, 0.0f, 0, 0, 1.0f,
+            -0.5f, 0.5f, 0.0f, 0.3f, 0.5f, 0.7f
     };
 
     unsigned int indices[6] = {

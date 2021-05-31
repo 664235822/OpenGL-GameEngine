@@ -13,7 +13,7 @@ public:
 
     ClearColor();
 
-    void Update() override;
+    void OnUpdate() override;
 
     void OnGui() override;
 

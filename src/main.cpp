@@ -1,6 +1,5 @@
 #include <glew.h>
 #include <glfw3.h>
-#include <iostream>
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
@@ -38,11 +37,9 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 150");
 
+    auto *actors = new Actor();
     auto *components = new Component();
     components->init();
-
-    auto *actors = new Actor();
-    actors->init();
 
     //初始化GLEW
     glewExperimental = true;
@@ -54,6 +51,10 @@ int main() {
 
     //视口
     glViewport(0, 0, 1366, 768);
+
+    //背面剔除
+    //glEnable(GL_CULL_FACE);
+    //glCullFace(GL_BACK);
 
     //渲染循环
     while (!glfwWindowShouldClose(window)) {
@@ -68,22 +69,26 @@ int main() {
         switch (tab) {
             case 0:
                 ImGui::Text("Create");
-                for (auto current:actors->initArray) {
-                    current->OnInitGui();
-                }
+                actors->OnInitGui();
                 break;
             case 1:
                 break;
             case 2:
                 for (auto current:components->array) {
                     current->OnGui();
-                    current->Update();
                 }
                 break;
             default:
                 break;
         }
         ImGui::EndTabBar();
+
+        for (auto current:components->array) {
+            current->OnUpdate();
+        }
+        for (auto current:actors->array) {
+            current->OnUpdate();
+        }
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

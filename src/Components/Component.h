@@ -16,7 +16,7 @@ public:
     void init();
 
     virtual void OnGui();
-    virtual void Update();
+    virtual void OnUpdate();
 
     std::vector<Component*> array;
 };

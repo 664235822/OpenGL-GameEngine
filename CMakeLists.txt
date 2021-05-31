@@ -22,7 +22,7 @@ link_libraries(${OPENGL} ${GLEW_LINK} ${GLFW_LINK} ${ASSIMP_LINK})
 set(SOURCE_FILES "src/glad.c" "src/main.cpp" src/Components/ClearColor.cpp src/Components/ClearColor.h src/Components/Component.cpp
         src/Components/Component.h src/imgui/imconfig.h src/imgui/imgui.cpp src/imgui/imgui.h src/imgui/imgui_demo.cpp src/imgui/imgui_draw.cpp
         src/imgui/imgui_impl_glfw.cpp src/imgui/imgui_impl_glfw.h src/imgui/imgui_impl_opengl3.cpp src/imgui/imgui_impl_opengl3.h
-        src/imgui/imgui_internal.h src/imgui/imgui_tables.cpp src/imgui/imgui_widgets.cpp src/imgui/imstb_rectpack.h src/imgui/imstb_textedit.h src/Actors/Rectangle.cpp src/Actors/Rectangle.h src/Actors/Actor.cpp src/Actors/Actor.h src/Actors/Triangle.cpp src/Actors/Triangle.h)
+        src/imgui/imgui_internal.h src/imgui/imgui_tables.cpp src/imgui/imgui_widgets.cpp src/imgui/imstb_rectpack.h src/imgui/imstb_textedit.h src/Actors/Rectangle.cpp src/Actors/Rectangle.h src/Actors/Actor.cpp src/Actors/Actor.h src/Actors/Triangle.cpp src/Actors/Triangle.h src/Components/Shader.cpp src/Components/Shader.h)
 add_executable(OpenGL_GameEngine ${SOURCE_FILES})
 
 # mac下这步很重要
