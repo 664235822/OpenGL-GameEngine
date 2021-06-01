@@ -19,8 +19,8 @@ public:
 
 private:
 
-    unsigned int VAO;
-    unsigned int VBO;
+    unsigned int VAO{};
+    unsigned int VBO{};
 
     float vertices[18] = {
             0.5f, 0.5f, 0.0f, 1.0f, 0, 0,

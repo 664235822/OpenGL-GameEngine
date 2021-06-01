@@ -1,12 +1,10 @@
+#include <cstdio>
 #include <glew.h>
 #include <glfw3.h>
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
-#include "Actors/Actor.h"
-#include "Components/Component.h"
-
-int tab = 0;
+#include "GUI/GUI.h"
 
 int main() {
 
@@ -37,10 +35,6 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 150");
 
-    auto *actors = new Actor();
-    auto *components = new Component();
-    components->init();
-
     //初始化GLEW
     glewExperimental = true;
     if (glewInit() != GLEW_OK) {
@@ -56,39 +50,17 @@ int main() {
     //glEnable(GL_CULL_FACE);
     //glCullFace(GL_BACK);
 
+    auto *gui = new GUI();
+    gui->Init();
+
     //渲染循环
     while (!glfwWindowShouldClose(window)) {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::BeginTabBar("Create");
-        if (ImGui::TabItemButton("Actors")) tab = 0;
-        if (ImGui::TabItemButton("Lighting")) tab = 1;
-        if (ImGui::TabItemButton("Components")) tab = 2;
-        switch (tab) {
-            case 0:
-                ImGui::Text("Create");
-                actors->OnInitGui();
-                break;
-            case 1:
-                break;
-            case 2:
-                for (auto current:components->array) {
-                    current->OnGui();
-                }
-                break;
-            default:
-                break;
-        }
-        ImGui::EndTabBar();
-
-        for (auto current:components->array) {
-            current->OnUpdate();
-        }
-        for (auto current:actors->array) {
-            current->OnUpdate();
-        }
+        gui->OnGUI();
+        gui->OnUpdate();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

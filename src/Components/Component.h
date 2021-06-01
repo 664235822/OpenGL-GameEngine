@@ -13,12 +13,16 @@ public:
 
     Component();
 
-    void init();
+    void Init();
 
-    virtual void OnGui();
+    virtual void OnGUI();
+
     virtual void OnUpdate();
 
-    std::vector<Component*> array;
+private:
+
+    std::vector<Component *> array;
+
 };
 
 #endif //OPENGL_GAMEENGINE_COMPONENT_H

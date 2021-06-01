@@ -5,14 +5,11 @@
 #include "Rectangle.h"
 #include "glew.h"
 
-
 Rectangle::Rectangle() {
     label = "Rectangle";
 }
 
 void Rectangle::OnInit() {
-    Actor::OnInit();
-
     //创建VAO
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
@@ -41,8 +38,6 @@ void Rectangle::OnInit() {
 }
 
 void Rectangle::OnUpdate() {
-    Actor::OnUpdate();
-
     //画三角形、矩形
     glBindVertexArray(VAO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);

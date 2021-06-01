@@ -11,8 +11,6 @@ Triangle::Triangle() {
 
 
 void Triangle::OnInit() {
-    Actor::OnInit();
-
     //创建VAO
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
@@ -34,8 +32,6 @@ void Triangle::OnInit() {
 }
 
 void Triangle::OnUpdate() {
-    Actor::OnUpdate();
-
     //画三角形、矩形
     glBindVertexArray(VAO);
 

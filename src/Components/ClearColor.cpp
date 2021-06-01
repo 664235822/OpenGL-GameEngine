@@ -13,6 +13,6 @@ void ClearColor::OnUpdate() {
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void ClearColor::OnGui() {
+void ClearColor::OnGUI() {
     ImGui::ColorEdit4("BackGround Color", color);
 }

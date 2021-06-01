@@ -7,15 +7,15 @@
 
 #include "Component.h"
 
-class ClearColor : public Component{
+class ClearColor : public Component {
 
 public:
 
     ClearColor();
 
-    void OnUpdate() override;
+    void OnGUI() override;
 
-    void OnGui() override;
+    void OnUpdate() override;
 
 private:
 

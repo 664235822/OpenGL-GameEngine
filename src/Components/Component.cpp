@@ -7,16 +7,24 @@
 
 Component::Component() = default;
 
-void Component::OnUpdate() {
-
-}
-
-void Component::OnGui() {
-
-}
-
-void Component::init() {
+void Component::Init() {
     auto *clearColor = new ClearColor();
 
     array.push_back(clearColor);
 }
+
+
+void Component::OnGUI() {
+    for (auto current:array) {
+        current->OnGUI();
+    }
+}
+
+void Component::OnUpdate() {
+    for (auto current:array) {
+        current->OnUpdate();
+    }
+}
+
+
+

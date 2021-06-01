@@ -9,7 +9,8 @@
 
 Actor::Actor() = default;
 
-void Actor::OnInitGui() {
+void Actor::OnInit() {
+    ImGui::Text("Create");
     if (ImGui::Button("Triangle")) {
         auto *triangle = new Triangle();
         triangle->OnInit();
@@ -22,12 +23,10 @@ void Actor::OnInitGui() {
     }
 }
 
-void Actor::OnInit() {
-
-}
-
 void Actor::OnUpdate() {
-
+    for (auto current:array) {
+        current->OnUpdate();
+    }
 }
 
 
