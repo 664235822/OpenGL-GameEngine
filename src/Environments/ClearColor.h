@@ -5,9 +5,9 @@
 #ifndef OPENGL_GAMEENGINE_CLEARCOLOR_H
 #define OPENGL_GAMEENGINE_CLEARCOLOR_H
 
-#include "Component.h"
+#include "Environment.h"
 
-class ClearColor : public Component {
+class ClearColor : public Environment {
 
 public:
 

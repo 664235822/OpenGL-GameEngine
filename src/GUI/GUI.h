@@ -6,6 +6,9 @@
 #define OPENGL_GAMEENGINE_GUI_H
 
 #include "vector"
+#include "../Actors/Actor.h"
+#include "../Environments/Environment.h"
+#include "../imgui/imgui.h"
 
 class GUI {
 

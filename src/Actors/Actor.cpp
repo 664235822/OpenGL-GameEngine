@@ -16,6 +16,7 @@ void Actor::OnInit() {
         triangle->OnInit();
         array.push_back(triangle);
     }
+    ImGui::SameLine();
     if (ImGui::Button("Rectangle")) {
         auto *rectangle = new Rectangle();
         rectangle->OnInit();
@@ -28,5 +29,3 @@ void Actor::OnUpdate() {
         current->OnUpdate();
     }
 }
-
-

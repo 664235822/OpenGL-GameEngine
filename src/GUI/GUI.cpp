@@ -4,14 +4,17 @@
 
 #include "GUI.h"
 #include "MainGUI.h"
+#include "ScenesGUI.h"
 
 GUI::GUI() = default;
 
 void GUI::Init() {
-    auto *mainGui = new MainGUI();
-    mainGui->Init();
+    array.push_back(new MainGUI());
+    array.push_back(new ScenesGUI());
 
-    array.push_back(mainGui);
+    for (auto current:array) {
+        current->Init();
+    }
 }
 
 void GUI::OnGUI() {

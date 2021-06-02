@@ -6,8 +6,6 @@
 #define OPENGL_GAMEENGINE_MAINGUI_H
 
 #include "GUI.h"
-#include "../Actors/Actor.h"
-#include "../Components/Component.h"
 
 class MainGUI : public GUI {
 
@@ -24,9 +22,6 @@ public:
 private:
 
     unsigned int tab = 0;
-
-    Actor *actor = new Actor();
-    Component *component = new Component();
 
 };
 

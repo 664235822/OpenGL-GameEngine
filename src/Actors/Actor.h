@@ -6,7 +6,6 @@
 #define OPENGL_GAMEENGINE_ACTOR_H
 
 #include <vector>
-#include <string>
 #include "../Tools/Shader.h"
 
 class Actor {
@@ -19,13 +18,13 @@ public:
 
     virtual void OnUpdate();
 
-protected:
-
-    string label{};
-
-    Shader *shader = nullptr;
+    char* label{};
 
     std::vector<Actor *> array;
+
+protected:
+
+    Shader *shader{};
 
 };
 

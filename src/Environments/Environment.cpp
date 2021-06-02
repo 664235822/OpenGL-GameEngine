@@ -2,25 +2,25 @@
 // Created by 朱方灏钧 on 2021/2/23.
 //
 
-#include "Component.h"
+#include "Environment.h"
 #include "ClearColor.h"
 
-Component::Component() = default;
+Environment::Environment() = default;
 
-void Component::Init() {
+void Environment::Init() {
     auto *clearColor = new ClearColor();
 
     array.push_back(clearColor);
 }
 
 
-void Component::OnGUI() {
+void Environment::OnGUI() {
     for (auto current:array) {
         current->OnGUI();
     }
 }
 
-void Component::OnUpdate() {
+void Environment::OnUpdate() {
     for (auto current:array) {
         current->OnUpdate();
     }

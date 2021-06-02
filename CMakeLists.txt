@@ -19,10 +19,13 @@ link_libraries(${OPENGL} ${GLEW_LINK} ${GLFW_LINK} ${ASSIMP_LINK})
 
 # 执行编译命令
 # 这个glad.c在第2步中说过要拉到项目中，注意路径
-set(SOURCE_FILES "src/glad.c" "src/main.cpp" src/Components/ClearColor.cpp src/Components/ClearColor.h src/Components/Component.cpp
-        src/Components/Component.h src/imgui/imconfig.h src/imgui/imgui.cpp src/imgui/imgui.h src/imgui/imgui_demo.cpp src/imgui/imgui_draw.cpp
+set(SOURCE_FILES "src/glad.c" "src/main.cpp" src/Environments/ClearColor.cpp src/Environments/ClearColor.h src/Environments/Environment.cpp
+        src/Environments/Environment.h src/imgui/imconfig.h src/imgui/imgui.cpp src/imgui/imgui.h src/imgui/imgui_demo.cpp src/imgui/imgui_draw.cpp
         src/imgui/imgui_impl_glfw.cpp src/imgui/imgui_impl_glfw.h src/imgui/imgui_impl_opengl3.cpp src/imgui/imgui_impl_opengl3.h
-        src/imgui/imgui_internal.h src/imgui/imgui_tables.cpp src/imgui/imgui_widgets.cpp src/imgui/imstb_rectpack.h src/imgui/imstb_textedit.h src/Actors/Rectangle.cpp src/Actors/Rectangle.h src/Actors/Actor.cpp src/Actors/Actor.h src/Actors/Triangle.cpp src/Actors/Triangle.h src/Tools/Shader.cpp src/Tools/Shader.h src/GUI/MainGUI.cpp src/GUI/MainGUI.h src/GUI/GUI.cpp src/GUI/GUI.h)
+        src/imgui/imgui_internal.h src/imgui/imgui_tables.cpp src/imgui/imgui_widgets.cpp src/imgui/imstb_rectpack.h src/imgui/imstb_textedit.h
+        src/Actors/Rectangle.cpp src/Actors/Rectangle.h src/Actors/Actor.cpp src/Actors/Actor.h src/Actors/Triangle.cpp src/Actors/Triangle.h
+        src/Tools/Shader.cpp src/Tools/Shader.h src/GUI/MainGUI.cpp src/GUI/MainGUI.h src/GUI/GUI.cpp src/GUI/GUI.h src/GUI/ScenesGUI.cpp src/GUI/ScenesGUI.h
+        src/Tools/Singleton.h)
 add_executable(OpenGL_GameEngine ${SOURCE_FILES})
 
 # mac下这步很重要
