@@ -22,6 +22,10 @@ public:
 
     virtual void OnUpdate();
 
+protected:
+
+    bool isInit = true;
+
 private:
 
     std::vector<GUI *> array;

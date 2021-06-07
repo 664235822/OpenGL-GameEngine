@@ -23,6 +23,8 @@ private:
 
     int select = 0;
 
+    bool isInit = true;
+
 };
 
 

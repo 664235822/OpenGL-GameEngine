@@ -13,7 +13,10 @@ void MainGUI::Init() {
 
 void MainGUI::OnGUI() {
     ImGui::Begin("Main");
-    ImGui::SetWindowSize(ImVec2(300.0f, 400.0f));
+    if (isInit) {
+        ImGui::SetWindowSize(ImVec2(300.0f, 400.0f));
+        isInit = false;
+    }
     ImGui::BeginTabBar("Create");
     if (ImGui::TabItemButton("Actors")) tab = 0;
     if (ImGui::TabItemButton("Lights")) tab = 1;
