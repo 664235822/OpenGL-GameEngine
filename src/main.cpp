@@ -5,6 +5,7 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
 #include "GUI/GUI.h"
+#include "Tools/Singleton.h"
 
 int main() {
 
@@ -50,8 +51,7 @@ int main() {
     //glEnable(GL_CULL_FACE);
     //glCullFace(GL_BACK);
 
-    auto *gui = new GUI();
-    gui->Init();
+    GetInstance<GUI>().Init();
 
     //渲染循环
     while (!glfwWindowShouldClose(window)) {
@@ -59,8 +59,8 @@ int main() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        gui->OnGUI();
-        gui->OnUpdate();
+        GetInstance<GUI>().OnGUI();
+        GetInstance<GUI>().OnUpdate();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

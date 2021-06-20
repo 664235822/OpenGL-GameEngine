@@ -5,7 +5,6 @@
 #include "Actor.h"
 #include "Triangle.h"
 #include "Rectangle.h"
-#include "../imgui/imgui.h"
 
 Actor::Actor() = default;
 
@@ -28,4 +27,8 @@ void Actor::OnUpdate() {
     for (auto current:array) {
         current->OnUpdate();
     }
+}
+
+void Actor::OnGUI() {
+
 }

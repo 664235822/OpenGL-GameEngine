@@ -30,6 +30,11 @@ void ScenesGUI::OnGUI() {
         }
         ImGui::EndListBox();
     }
+    ImGui::Text("Setting");
+    if (!GetInstance<Actor>().array.empty()) {
+        GetInstance<Actor>().array[select]->OnGUI();
+    }
+
     ImGui::End();
 }
 

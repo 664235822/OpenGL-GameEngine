@@ -9,7 +9,6 @@ Triangle::Triangle() {
     label = "Triangle";
 }
 
-
 void Triangle::OnInit() {
     //创建VAO
     glGenVertexArrays(1, &VAO);
@@ -38,5 +37,16 @@ void Triangle::OnUpdate() {
     //使用着色器
     shader->use();
 
-    glDrawArrays(GL_TRIANGLES,0,3);//三角形
+    glDrawArrays(GL_TRIANGLES, 0, 3);//三角形
+}
+
+void Triangle::OnGUI() {
+    ImGui::Text("Transform");
+    ImGui::DragFloat3("Position 1", point1, 0.1f);
+    ImGui::DragFloat3("Position 2", point2, 0.1f);
+    ImGui::DragFloat3("Position 3", point3, 0.1f);
+    ImGui::Text("Color");
+    ImGui::DragFloat3("Color 1", color1, 0.05f, 0.0f, 1.0f);
+    ImGui::DragFloat3("Color 2", color2, 0.05f, 0.0f, 1.0f);
+    ImGui::DragFloat3("Color 3", color3, 0.05f, 0.0f, 1.0f);
 }
