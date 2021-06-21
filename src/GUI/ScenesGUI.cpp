@@ -19,7 +19,7 @@ void ScenesGUI::OnGUI() {
         ImGui::SetWindowSize(ImVec2(300.f, 600.f));
         isInit = false;
     }
-    ImGui::Text("Objects");
+    ImGui::Text("List");
     if (ImGui::BeginListBox("", ImVec2(300.f, 200.f))) {
         auto array = GetInstance<Actor>().array;
         for (int i = 0; i < array.size(); i++) {

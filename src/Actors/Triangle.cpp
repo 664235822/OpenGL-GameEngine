@@ -33,7 +33,7 @@ void Triangle::OnUpdate() {
 
     //使用着色器
     shader->use();
-    shader->setVector3("aColor", color[0], color[1], color[2]);
+    shader->setVector3("aColor", color);
 
     glDrawArrays(GL_TRIANGLES, 0, 3);//三角形
 }

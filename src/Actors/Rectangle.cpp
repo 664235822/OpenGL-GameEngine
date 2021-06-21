@@ -41,7 +41,7 @@ void Rectangle::OnUpdate() {
 
     //使用着色器
     shader->use();
-    shader->setVector3("aColor", color[0], color[1], color[2]);
+    shader->setVector3("aColor", color);
 
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);//矩形
 }

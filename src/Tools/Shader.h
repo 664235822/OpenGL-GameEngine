@@ -21,7 +21,7 @@ public:
 
     void setFloat(const std::string &name, float value) const;
 
-    void setVector3(const string &name, float value1, float value2, float value3) const;
+    void setVector3(const string &name, float value[3]) const;
 
 private:
     string vertexString;
