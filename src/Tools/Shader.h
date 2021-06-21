@@ -11,19 +11,28 @@ using namespace std;
 
 class Shader {
 public:
-    Shader(const char* vertexPath,const char* fragmentPath);
+    Shader(const char *vertexPath, const char *fragmentPath);
 
     void use();
+
+    void setBool(const std::string &name, bool value) const;
+
+    void setInt(const std::string &name, int value) const;
+
+    void setFloat(const std::string &name, float value) const;
+
+    void setVector3(const string &name, float value1, float value2, float value3) const;
+
 private:
     string vertexString;
     string fragmentString;
 
-    const char* vertexSource;
-    const char* fragmentSource;
+    const char *vertexSource;
+    const char *fragmentSource;
 
     unsigned int ID;
 
-    void checkCompileErrors(unsigned int ID,string type);
+    void checkCompileErrors(unsigned int ID, string type);
 };
 
 

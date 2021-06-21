@@ -42,18 +42,18 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
         vertex = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertex, 1, &vertexSource, NULL);
         glCompileShader(vertex);
-        checkCompileErrors(vertex,"VERTEX");
+        checkCompileErrors(vertex, "VERTEX");
 
         fragment = glCreateShader(GL_FRAGMENT_SHADER);
         glShaderSource(fragment, 1, &fragmentSource, NULL);
         glCompileShader(fragment);
-        checkCompileErrors(fragment,"FRAGMENT");
+        checkCompileErrors(fragment, "FRAGMENT");
 
         ID = glCreateProgram();
         glAttachShader(ID, vertex);
         glAttachShader(ID, fragment);
         glLinkProgram(ID);
-        checkCompileErrors(ID,"PROGRAM");
+        checkCompileErrors(ID, "PROGRAM");
 
         glDeleteShader(vertex);
         glDeleteShader(fragment);
@@ -83,4 +83,20 @@ void Shader::checkCompileErrors(unsigned int ID, string type) {
             cout << "program linking error: " << infoLog << endl;
         }
     }
+}
+
+void Shader::setBool(const string &name, bool value) const {
+    glUniform1i(glGetUniformLocation(ID, name.c_str()), (int) value);
+}
+
+void Shader::setInt(const string &name, int value) const {
+    glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
+}
+
+void Shader::setFloat(const string &name, float value) const {
+    glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+}
+
+void Shader::setVector3(const string &name, float value1, float value2, float value3) const {
+    glUniform3f(glGetUniformLocation(ID,name.c_str()),value1,value2,value3);
 }
