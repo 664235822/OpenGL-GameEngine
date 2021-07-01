@@ -27,10 +27,14 @@ private:
     float color[3]{1.0f, 0, 0};
 
     float vertices[18] = {
-            0.5f, 0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            -0.5f, -0.5f, 0.0f
+            0.5f, 0.5f, 0.0f, 1.0f, 1.0f,
+            0.5f, -0.5f, 0.0f, 1.0f, 0,
+            -0.5f, -0.5f, 0.0f, 0, 0
     };
+
+    unsigned int texBuffer;
+
+    ImGui::FileBrowser fileBrowser;
 };
 
 

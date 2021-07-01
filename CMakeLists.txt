@@ -25,7 +25,7 @@ set(SOURCE_FILES "src/glad.c" "src/main.cpp" src/Environments/ClearColor.cpp src
         src/imgui/imgui_internal.h src/imgui/imgui_tables.cpp src/imgui/imgui_widgets.cpp src/imgui/imstb_rectpack.h src/imgui/imstb_textedit.h
         src/Actors/Rectangle.cpp src/Actors/Rectangle.h src/Actors/Actor.cpp src/Actors/Actor.h src/Actors/Triangle.cpp src/Actors/Triangle.h
         src/Tools/Shader.cpp src/Tools/Shader.h src/GUI/MainGUI.cpp src/GUI/MainGUI.h src/GUI/GUI.cpp src/GUI/GUI.h src/GUI/ScenesGUI.cpp src/GUI/ScenesGUI.h
-        src/Tools/Singleton.h)
+        src/Tools/Singleton.h src/Tools/stb_image.h src/imgui/imfilebrowser.h)
 add_executable(OpenGL_GameEngine ${SOURCE_FILES})
 
 # mac下这步很重要

@@ -6,8 +6,11 @@
 #define OPENGL_GAMEENGINE_ACTOR_H
 
 #include <vector>
+#include "glew.h"
 #include "../imgui/imgui.h"
+#include "../imgui/imfilebrowser.h"
 #include "../Tools/Shader.h"
+#include "../Tools/stb_image.h"
 
 class Actor {
 

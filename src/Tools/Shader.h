@@ -11,6 +11,7 @@ using namespace std;
 
 class Shader {
 public:
+
     Shader(const char *vertexPath, const char *fragmentPath);
 
     void use();
@@ -22,6 +23,8 @@ public:
     void setFloat(const std::string &name, float value) const;
 
     void setVector3(const string &name, float value[3]) const;
+
+    void setTexImage(const string &name, float value[3]) const;
 
 private:
     string vertexString;

@@ -27,16 +27,20 @@ private:
     float color[3]{1.0f, 0, 0};
 
     float vertices[24] = {
-            0.5f, 0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            -0.5f, -0.5f, 0.0f,
-            -0.5f, 0.5f, 0.0f
+            0.5f, 0.5f, 0.0f, 1.0f, 1.0f,
+            0.5f, -0.5f, 0.0f, 1.0f, 0,
+            -0.5f, -0.5f, 0.0f, 0, 0,
+            -0.5f, 0.5f, 0.0f, 0, 1.0f
     };
 
     unsigned int indices[6] = {
             0, 1, 3,
             1, 2, 3
     };
+
+    unsigned int texBuffer;
+
+    ImGui::FileBrowser fileBrowser;
 };
 
 
